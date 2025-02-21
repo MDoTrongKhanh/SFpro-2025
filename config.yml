@@ -159,9 +159,11 @@ challenge:                         # Incoming challenges.
     - rated                        # Rated games - must comment if the engine doesn't try to win.
   block_list:                      # List of users from which the challenges are always declined.
     - YoBot_v2
+    - TheMatrix2025
+    - TheMatrix2029
 # allow_list:                      # List of users from which challenges are exclusively accepted, all others being declined. If empty, challenges from all users may be accepted.
-#   - user3
-#   - user4
+#   - ttBot
+#   - PetersBot
 # recent_bot_challenge_age: 60     # Maximum age of a bot challenge to be considered recent in seconds
 # max_recent_bot_challenges: 2     # Maximum number of recent challenges that can be accepted from the same bot
   bullet_requires_increment: False # Require that bullet game challenges from bots have a non-zero increment
@@ -188,6 +190,7 @@ matchmaking:
   challenge_variant: "standard"      # If set to 'random', the bot will choose one variant from the variants enabled in 'challenge.variants'.
   challenge_timeout: 1            # Create a challenge after being idle for 'challenge_timeout' minutes. The minimum is 1 minute.
   challenge_initial_time:          # Initial time in seconds of the challenge (to be chosen at random).
+    - 30
     - 60
     - 180
   challenge_increment:             # Increment in seconds of the challenge (to be chosen at random).
