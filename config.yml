@@ -162,6 +162,8 @@ challenge:                         # Incoming challenges.
     - TheMatrix2025
     - TheMatrix2029
     - ToromBot
+    - Nikitosik-ai
+    - Nikitosikbot_v2
 # allow_list:                      # List of users from which challenges are exclusively accepted, all others being declined. If empty, challenges from all users may be accepted.
 #   - ttBot
 #   - PetersBot
