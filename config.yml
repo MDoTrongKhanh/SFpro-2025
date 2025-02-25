@@ -128,7 +128,7 @@ challenge:                         # Incoming challenges.
   concurrency: 5                   # Number of games to play simultaneously.
   sort_by: "best"                  # Possible values: "best" and "first".
   accept_bot: true                 # Accepts challenges coming from other bots.
-  only_bot: true                  # Accept challenges by bots only.
+  only_bot: false                  # Accept challenges by bots only.
   max_increment: 1               # Maximum amount of increment to accept a challenge in seconds. The max is 180. Set to 0 for no increment.
   min_increment: 0                 # Minimum amount of increment to accept a challenge in seconds.
   max_base: 180                  # Maximum amount of base time to accept a challenge in seconds. The max is 10800 (3 hours).
