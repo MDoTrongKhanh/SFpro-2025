@@ -3,7 +3,7 @@ url: "https://lichess.org/"        # Lichess base URL.
 
 engine:                            # Engine settings.
   dir: "./engines/"                # Directory containing the engine. This can be an absolute path or one relative to lichess-bot/.
-  name: "stockfish-ubuntu-x86-64-sse41-popcnt"  # Binary name of the engine to use.
+  name: "stockfish"  # Binary name of the engine to use.
   working_dir: ""                  # Directory where the chess engine will read and write files. If blank or missing, the current directory is used.
                                    # NOTE: If working_dir is set, the engine will look for files and directories relative to this directory, not where lichess-bot was launched. Absolute paths are unaffected.
   protocol: "uci"                  # "uci", "xboard" or "homemade"
@@ -22,7 +22,7 @@ engine:                            # Engine settings.
 #     Use the same pattern for 'chess960', 'giveaway' (antichess), 'crazyhouse', 'horde', 'kingofthehill', 'racingkings' and '3check' as well.
     min_weight: 1                  # Does not select moves with weight below min_weight (min 0, max: 65535).
     selection: "weighted_random"   # Move selection is one of "weighted_random", "uniform_random" or "best_move" (but not below the min_weight in the 2nd and 3rd case).
-    max_depth: 20                  # How many moves from the start to take from the book.
+    max_depth: 21                  # How many moves from the start to take from the book.
 
   draw_or_resign:
     resign_enabled: false          # Whether or not the bot should resign.
@@ -43,13 +43,13 @@ engine:                            # Engine settings.
       enabled: true               # Whether or not to use chessdb book.
       min_time: 20                 # Minimum time (in seconds) to use chessdb book.
       move_quality: "best"         # One of "all", "good", "best".
-      min_depth: 20                # Only for move_quality: "best".
+      min_depth: 23                # Only for move_quality: "best".
     lichess_cloud_analysis:
       enabled: true                # Whether or not to use lichess cloud analysis.
       min_time: 20                 # Minimum time (in seconds) the bot must have to use cloud analysis.
       move_quality: "best"         # One of "good", "best".
       max_score_difference: 50     # Only for move_quality: "good". The maximum score difference (in cp) between the best move and the other moves.
-      min_depth: 20
+      min_depth: 22
       min_knodes: 0
     lichess_opening_explorer:
       enabled: true
@@ -87,9 +87,9 @@ engine:                            # Engine settings.
 #   Hash: 256
 
   uci_options:                     # Arbitrary UCI options passed to the engine.
-    #Move Overhead: 100            # Increase if your bot flags games too often.
-    #Threads: 4                    # Max CPU threads the engine can use.
-    #Hash: 512                     # Max memory (in megabytes) the engine can allocate.
+    Move Overhead: 100            # Increase if your bot flags games too often.
+    Threads: 4                    # Max CPU threads the engine can use.
+    Hash: 512                     # Max memory (in megabytes) the engine can allocate.
     #SyzygyPath: "./syzygy/"       # Paths to Syzygy endgame tablebases that the engine reads.
     UCI_ShowWDL: true             # Show the chance of the engine winning.
 #   go_commands:                   # Additional options to pass to the UCI go command.
@@ -155,7 +155,7 @@ challenge:                         # Incoming challenges.
     #- correspondence
     #- unlimited
   modes:                           # Game modes to accept.
-    #- casual                       # Unrated games.
+    - casual                       # Unrated games.
     - rated                        # Rated games - must comment if the engine doesn't try to win.
   block_list:                      # List of users from which the challenges are always declined.
     #- YoBot_v2
@@ -188,7 +188,7 @@ greeting:
                                    # "all" - every game is written to a single file named "{Bot name} games.pgn"
 
 matchmaking:
-  allow_matchmaking: true
+  allow_matchmaking: false
   allow_during_games: true         # Set it to 'true' to create challenges during long games.
   challenge_variant: "standard"      # If set to 'random', the bot will choose one variant from the variants enabled in 'challenge.variants'.
   challenge_timeout: 1            # Create a challenge after being idle for 'challenge_timeout' minutes. The minimum is 1 minute.
@@ -208,12 +208,9 @@ matchmaking:
   opponent_rating_difference: 300  # The maximum difference in rating between the bot's rating and opponent's rating.
   rating_preference: "high"        # One of "none", "high", "low".
   opponent_allow_tos_violation: false # Set to 'true' to allow challenging bots that violated the Lichess Terms of Service.
-  challenge_mode: "rated"         # Set it to the mode in which challenges are sent. Possible options are 'casual', 'rated' and 'random'.
+  challenge_mode: "casual"         # Set it to the mode in which challenges are sent. Possible options are 'casual', 'rated' and 'random'.
   challenge_filter: none           # If a bot declines a challenge, do not issue a similar challenge to that bot. Possible options are 'none', 'coarse', and 'fine'.
   block_list:                      # The list of bots that will not be challenged
-    - TheMatrix2029
-    - ToromBot
-    - Nikitosik-ai
     - Nikitosikbot_v2
 # overrides:                       # List of overrides for the matchmaking specifications above. When a challenge is created, either the default specification above or one of the overrides will be randomly chosen.
 #   bullet_only_horde:             # Name of the override. Can be anything as long as each override has a unique name ("bullet_only_horde" and "easy_chess960" in these examples).
