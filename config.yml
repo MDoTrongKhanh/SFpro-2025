@@ -14,7 +14,7 @@ engine:                            # Engine settings.
     book:
       standard:                    # List of book file paths for variant standard.
         - "./engines/optimus32.bin"
-        - "./engines/titans.bin"
+        - "./engines/Titans.bin"
         - "./engines/Perfect2023.bin"
 #     atomic:                      # List of book file paths for variant atomic.
 #       - engines/atomicbook1.bin
