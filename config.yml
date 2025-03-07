@@ -69,7 +69,7 @@ engine:                            # Engine settings.
 
   lichess_bot_tbs:                 # The tablebases list here will be read by lichess-bot, not the engine.
     syzygy:
-      enabled: true               # Whether or not to use local syzygy endgame tablebases.
+      enabled: false               # Whether or not to use local syzygy endgame tablebases.
       paths:                       # Paths to Syzygy endgame tablebases.
         - "./engines/syzygy/"
       max_pieces: 5                # Maximum number of pieces in the endgame tablebase.
@@ -89,7 +89,7 @@ engine:                            # Engine settings.
 #   Hash: 256
 
   uci_options:                     # Arbitrary UCI options passed to the engine.
-    Move Overhead: 195            # Increase if your bot flags games too often.
+    Move Overhead: 200            # Increase if your bot flags games too often.
     Threads: 4                    # Max CPU threads the engine can use.
     Hash: 4096                     # Max memory (in megabytes) the engine can allocate.
     #SyzygyPath: "./engines/syzygy/"       # Paths to Syzygy endgame tablebases that the engine reads.
@@ -190,7 +190,7 @@ greeting:
                                    # "all" - every game is written to a single file named "{Bot name} games.pgn"
 
 matchmaking:
-  allow_matchmaking: true 
+  allow_matchmaking: false 
   allow_during_games: true         # Set it to 'true' to create challenges during long games.
   challenge_variant: "standard"      # If set to 'random', the bot will choose one variant from the variants enabled in 'challenge.variants'.
   challenge_timeout: 1            # Create a challenge after being idle for 'challenge_timeout' minutes. The minimum is 1 minute.
