@@ -69,10 +69,10 @@ engine:                            # Engine settings.
 
   lichess_bot_tbs:                 # The tablebases list here will be read by lichess-bot, not the engine.
     syzygy:
-      enabled: false               # Whether or not to use local syzygy endgame tablebases.
+      enabled: true               # Whether or not to use local syzygy endgame tablebases.
       paths:                       # Paths to Syzygy endgame tablebases.
-        - "engines/syzygy"
-      max_pieces: 7                # Maximum number of pieces in the endgame tablebase.
+        - "./engines/syzygy"
+      max_pieces: 5                # Maximum number of pieces in the endgame tablebase.
       move_quality: "best"         # One of "best" or "suggest" (it takes all the moves with the same WDL and tells the engine to only consider these; will move instantly if there is only 1 "good" move).
     gaviota:
       enabled: false               # Whether or not to use local gaviota endgame tablebases.
@@ -89,15 +89,15 @@ engine:                            # Engine settings.
 #   Hash: 256
 
   uci_options:                     # Arbitrary UCI options passed to the engine.
-    Move Overhead: 250            # Increase if your bot flags games too often.
+    Move Overhead: 195            # Increase if your bot flags games too often.
     Threads: 4                    # Max CPU threads the engine can use.
     Hash: 4096                     # Max memory (in megabytes) the engine can allocate.
-    #SyzygyPath: "./syzygy/"       # Paths to Syzygy endgame tablebases that the engine reads.
+    SyzygyPath: "./engines/syzygy/"       # Paths to Syzygy endgame tablebases that the engine reads.
     UCI_ShowWDL: true             # Show the chance of the engine winning.
-    go_commands:                   # Additional options to pass to the UCI go command.
+#    go_commands:                   # Additional options to pass to the UCI go command.
 #     nodes: 1                     # Search so many nodes only.
 #     depth: 5                     # Search depth ply only.
-      movetime: 100               # Integer. Search exactly movetime milliseconds.
+#      movetime: 100               # Integer. Search exactly movetime milliseconds.
 
 # xboard_options:                  # Arbitrary XBoard options passed to the engine.
 #   cores: "4"
@@ -116,7 +116,7 @@ engine:                            # Engine settings.
 abort_time: 30                     # Time to abort a game in seconds when there is no activity.
 fake_think_time: false             # Artificially slow down the bot to pretend like it's thinking.
 rate_limiting_delay: 0             # Time (in ms) to delay after sending a move to prevent "Too Many Requests" errors.
-move_overhead: 2000                # Increase if your bot flags games too often.
+move_overhead: 1500                # Increase if your bot flags games too often.
 max_takebacks_accepted: 10         # The number of times to allow an opponent to take back a move in a game.
 quit_after_all_games_finish: false # If set to true, then pressing Ctrl-C to quit will only stop lichess-bot after all current games have finished.
 
