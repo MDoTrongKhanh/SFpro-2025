@@ -71,7 +71,7 @@ engine:                            # Engine settings.
     syzygy:
       enabled: true               # Whether or not to use local syzygy endgame tablebases.
       paths:                       # Paths to Syzygy endgame tablebases.
-        - "./engines/syzygy"
+        - "./engines/syzygy/"
       max_pieces: 5                # Maximum number of pieces in the endgame tablebase.
       move_quality: "best"         # One of "best" or "suggest" (it takes all the moves with the same WDL and tells the engine to only consider these; will move instantly if there is only 1 "good" move).
     gaviota:
@@ -92,7 +92,7 @@ engine:                            # Engine settings.
     Move Overhead: 195            # Increase if your bot flags games too often.
     Threads: 4                    # Max CPU threads the engine can use.
     Hash: 4096                     # Max memory (in megabytes) the engine can allocate.
-    SyzygyPath: "./engines/syzygy"       # Paths to Syzygy endgame tablebases that the engine reads.
+    SyzygyPath: "./engines/syzygy/"       # Paths to Syzygy endgame tablebases that the engine reads.
     UCI_ShowWDL: true             # Show the chance of the engine winning.
 #    go_commands:                   # Additional options to pass to the UCI go command.
 #     nodes: 1                     # Search so many nodes only.
