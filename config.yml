@@ -97,7 +97,7 @@ engine:                            # Engine settings.
 #    go_commands:                   # Additional options to pass to the UCI go command.
 #     nodes: 1                     # Search so many nodes only.
 #     depth: 5                     # Search depth ply only.
-#     movetime: 100               # Integer. Search exactly movetime milliseconds.
+      movetime: 100               # Integer. Search exactly movetime milliseconds.
 
 # xboard_options:                  # Arbitrary XBoard options passed to the engine.
 #   cores: "4"
@@ -157,8 +157,8 @@ challenge:                         # Incoming challenges.
     #- correspondence
     #- unlimited
   modes:                           # Game modes to accept.
-    - casual                       # Unrated games.
-    #- rated                        # Rated games - must comment if the engine doesn't try to win.
+    #- casual                       # Unrated games.
+    - rated                        # Rated games - must comment if the engine doesn't try to win.
   block_list:                      # List of users from which the challenges are always declined.
     #- YoBot_v2
     #- TheMatrix2025
@@ -178,7 +178,7 @@ greeting:
   #   {opponent} to insert opponent's name
   #   {me} to insert bot's name
   # Any other words in curly braces will be removed.
-  hello: "Hablo Dablo! I'm {me}. Type !help for a list of commands I can respond to. Good luck!" # Message to send to opponent chat at the start of a game
+  hello: "Hi! I'm {me}. Type !help for a list of commands I can respond to. Good luck!" # Message to send to opponent chat at the start of a game
   goodbye: "Good game!" # Message to send to opponent chat at the end of a game
   hello_spectators: "Hi! I'm {me}. Type !help for a list of commands I can respond to." # Message to send to spectator chat at the start of a game
   goodbye_spectators: "Thanks for watching!" # Message to send to spectator chat at the end of a game
@@ -190,14 +190,16 @@ greeting:
                                    # "all" - every game is written to a single file named "{Bot name} games.pgn"
 
 matchmaking:
-  allow_matchmaking: false
+  allow_matchmaking: true
   allow_during_games: true         # Set it to 'true' to create challenges during long games.
   challenge_variant: "standard"      # If set to 'random', the bot will choose one variant from the variants enabled in 'challenge.variants'.
   challenge_timeout: 1            # Create a challenge after being idle for 'challenge_timeout' minutes. The minimum is 1 minute.
   challenge_initial_time:          # Initial time in seconds of the challenge (to be chosen at random).
+    - 30
+    - 60
     - 180
   challenge_increment:             # Increment in seconds of the challenge (to be chosen at random).
-    - 1
+    - 0
 #  challenge_days:                 # Days for correspondence challenge (to be chosen at random).
 #    - 1
 #    - 2
